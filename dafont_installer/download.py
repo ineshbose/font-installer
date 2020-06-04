@@ -5,6 +5,15 @@ parser = argparse.ArgumentParser()
 parser.add_argument('url', help="URL of the font")
 
 
+if os.name == 'nt':
+    from dafont_installer.windows import install_font
+elif os.name == 'posix':
+    from dafont_installer.posix import install_font
+else:
+    print("OS not supported!")
+    exit()
+
+
 def download(url, chunk_size=128):
     font_name = url.replace("-","_").split("https://www.dafont.com/")[1].split('.font')[0]
     dl_url = "https://dl.dafont.com/dl/?f={}".format(font_name)
@@ -21,18 +30,9 @@ def download(url, chunk_size=128):
 
     # install
     try:
-        
         for f in os.listdir(font_name):
             if '.otf' in f or '.ttf' in f:
-
-                if os.name == 'nt':
-                    import windows
-                    windows.install_font(os.path.abspath(font_name+"/"+f))
-                elif os.name == 'posix':
-                    import posix
-                    posix.install_font()
-                else:
-                    print("OS not supported!")
+                install_font(os.path.abspath(font_name+"/"+f))
     
     except PermissionError:
         print("Permission Error thrown. Did you run as Administrator?")
