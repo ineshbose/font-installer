@@ -27,11 +27,11 @@ def download(url, chunk_size=128):
     # extract ZIP
     with zipfile.ZipFile(font_name+".zip", 'r') as zip_ref:
         zip_ref.extractall(font_name)
-
+    
     # install
     try:
         for f in os.listdir(font_name):
-            if '.otf' in f or '.ttf' in f:
+            if '.otf' in f.lower() or '.ttf' in f.lower():
                 install_font(os.path.abspath(font_name+"/"+f))
     
     except PermissionError:
