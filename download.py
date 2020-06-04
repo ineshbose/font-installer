@@ -1,5 +1,4 @@
 import requests, zipfile, os
-import windows
 
 
 def download(url, chunk_size=128):
@@ -18,8 +17,19 @@ def download(url, chunk_size=128):
 
     # install
     try:
+        
         for f in os.listdir(font_name):
-            windows.install_font(os.path.abspath(font_name+"/"+f))
+            if '.otf' in f or '.ttf' in f:
+
+                if os.name == 'nt':
+                    import windows
+                    windows.install_font(os.path.abspath(font_name+"/"+f))
+                elif os.name == 'posix':
+                    import posix
+                    posix.install_font()
+                else:
+                    print("OS not supported!")
+    
     except PermissionError:
         print("Permission Error thrown. Did you run as Administrator?")
 
@@ -33,4 +43,4 @@ def download(url, chunk_size=128):
         os.rmdir(font_name)
 
 
-download("https://www.dafont.com/bebas-neue.font")
+download("https://www.dafont.com/thunderlightning-script.font")
