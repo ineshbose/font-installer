@@ -41,6 +41,3 @@ def download(url, chunk_size=128):
         for f in os.listdir(font_name):
             os.remove(font_name+"/"+f)
         os.rmdir(font_name)
-
-
-download("https://www.dafont.com/thunderlightning-script.font")
