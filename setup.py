@@ -11,6 +11,7 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=requirements,
+    scripts=['dafont_installer/windows.py','dafont_installer/posix.py',],
 
     author='Inesh Bose',
     desription='Install fonts from dafont.com!',
@@ -20,7 +21,7 @@ setup(
 
     entry_points={
         "console_scripts": [
-            "dafont-installer = dafont_installer.download:download",
+            "dafont-installer = dafont_installer.download:main",
         ],
     }
 )

@@ -1,4 +1,8 @@
-import requests, zipfile, os
+import requests, zipfile, os, argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('url', help="URL of the font")
 
 
 def download(url, chunk_size=128):
@@ -41,3 +45,7 @@ def download(url, chunk_size=128):
         for f in os.listdir(font_name):
             os.remove(font_name+"/"+f)
         os.rmdir(font_name)
+
+def main():
+    args = parser.parse_args()
+    download(args.url)

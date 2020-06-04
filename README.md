@@ -4,5 +4,6 @@ A simple program that helps to install fonts from [dafont.com](https://www.dafon
 ## Usage
 It is important that you **Run as Administrator** to install. Simply replace the URL of your font and it installs!
 ```python
-download("https://www.dafont.com/bebas-neue.font")
+$ pip install git+https://github.com/ineshbose/dafont-installer
+$ dafont-installer -h
 ```
