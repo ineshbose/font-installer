@@ -7,26 +7,26 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 setup(
-    name='dafont_installer',
-    version="0.1.1",
+    name='font_installer',
+    version="0.1.2",
     packages=find_packages(),
     install_requires=requirements,
 
     author='Inesh Bose',
-    desription='Install fonts from dafont.com!',
+    desription='Install fonts from popular font sites!',
     long_description=long_description,
     long_description_content_type='text/markdown',
     license='GPL',
-    url='https://github.com/ineshbose/dafont-installer',
+    url='https://github.com/ineshbose/font-installer',
 
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: GNU General Public License (GPL)',
     ],
-    keywords='dafont font downloader',
+    keywords='font downloader google dafont',
     entry_points={
         "console_scripts": [
-            "dafont-installer = dafont_installer.download:main",
+            "font-installer = font_installer.download:main",
         ],
     }
 )

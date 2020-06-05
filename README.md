@@ -1,31 +1,33 @@
-# dafont-installer [![PyPI](https://img.shields.io/pypi/v/dafont-installer?style=flat-square)](https://pypi.org/project/dafont-installer/)
+# font-installer [![PyPI](https://img.shields.io/pypi/v/font-installer?style=flat-square)](https://pypi.org/project/font-installer/)
 
-A simple program that helps to install fonts from [dafont.com](https://www.dafont.com/) easily!
+A simple program that helps to install fonts from:
+* [dafont.com](https://dafont.com)
+* [fonts.google.com](https://fonts.google.com)
 
 
 ## Installation
 
-### [PyPI](https://pypi.org/project/dafont-installer/)
+### [PyPI](https://pypi.org/project/font-installer/)
 
 ```sh
-$ pip install dafont-installer
-$ dafont-installer -h
+$ pip install font-installer
+$ font-installer -h
 ```
 
-### [Git](https://github.com/ineshbose/dafont-installer)
+### [Git](https://github.com/ineshbose/font-installer)
 
 ```sh
-$ pip install git+https://github.com/ineshbose/dafont-installer.git
+$ pip install git+https://github.com/ineshbose/font-installer.git
 ```
 
 
 ## Usage
 
-Installing fonts is as easy as browsing on [dafont.com](https://www.dafont.com/), copying the URL, and using
+Installing fonts is as easy as browsing on sites, copying the URL, and using
 
 ```sh
-$ dafont-installer <url>
-$ dafont-installer https://www.dafont.com/bebas-neue.font       # example
+$ font-installer <url>
+$ font-installer https://www.dafont.com/bebas-neue.font       # example
 ```
 
 It is important that you use **Run as Administrator** (Windows) or **sudo** (Linux) to install. Simply paste the URL of your font and it _just works_! <br>

@@ -8,17 +8,21 @@ parser.add_argument('-v', '--verbose', help="Output execution details", action="
 args = parser.parse_args()
 
 if os.name == 'nt':
-    from dafont_installer.windows import install_font
+    from font_installer.windows import install_font
 elif os.name == 'posix':
-    from dafont_installer.posix import install_font
+    from font_installer.posix import install_font
 else:
     print("OS not supported!")
     exit()
 
 
 def download(url, chunk_size=128):
-    font_name = url.replace("-","_").split("https://www.dafont.com/")[1].split('.font')[0]
-    dl_url = "https://dl.dafont.com/dl/?f={}".format(font_name)
+    if 'www.dafont.com' in url:
+        font_name = url.replace("-","_").split("www.dafont.com/")[1].split('.font')[0]
+        dl_url = "https://dl.dafont.com/dl/?f={}".format(font_name)
+    elif 'fonts.google.com' in url:
+        font_name = url.replace("+","%20").split("fonts.google.com/specimen/")[1]
+        dl_url = "https://fonts.google.com/download?family={}".format(font_name)
     r = requests.get(dl_url, stream=True)
     
     if args.verbose: print("Saving ZIP..")

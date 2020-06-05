@@ -2,11 +2,13 @@ import os
 
 def install_font(src_path):
 
+    dr = os.path.expanduser('~/.fonts')
+
     # create
     try:
-        os.mkdir("~/.fonts")
+        os.mkdir(dr)
     except FileExistsError:
         pass
 
     # move files
-    os.rename(src_path, "~/.fonts/"+src_path.split('/')[-1])
+    os.rename(src_path, dr+src_path.split('/')[-1])
