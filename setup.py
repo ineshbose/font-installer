@@ -8,16 +8,22 @@ with open('requirements.txt') as f:
 
 setup(
     name='dafont_installer',
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(),
     install_requires=requirements,
 
     author='Inesh Bose',
     desription='Install fonts from dafont.com!',
     long_description=long_description,
-    license='GNU GPL v3',
+    long_description_content_type='text/markdown',
+    license='GPL',
     url='https://github.com/ineshbose/dafont-installer',
 
+    classifiers=[
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: GNU General Public License (GPL)',
+    ],
+    keywords='dafont font downloader',
     entry_points={
         "console_scripts": [
             "dafont-installer = dafont_installer.download:main",
